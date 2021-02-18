@@ -1,0 +1,30 @@
+.list-container-light{
+    /*box-shadow: 0px 25px 8px -8px rgba(0, 0, 0, 0.274);*/
+}
+.search-bar-light{
+    background:hsl(0, 0%, 98%);
+    color: hsl(235, 19%, 35%);
+}
+.search-bar-light input{
+    color:hsl(235, 19%, 35%);
+}
+.task-list-container-light{
+    background:rgb(250, 250, 250);
+    box-shadow: 0px 15px 8px 2px rgba(0, 0, 0, 0.274);
+}
+.task-list-light{
+   color: hsl(235, 19%, 35%);
+}
+.task-light{
+    border-bottom: hsl(233, 11%, 84%) solid 1px;
+}
+.task-light input:checked ~ p{
+    text-decoration: line-through;
+    color: hsl(233, 11%, 84%);
+}
+.item-status-light li:hover{
+    color: hsl(235, 19%, 35%);
+}
+.item-clear-light:hover{
+    color:hsl(235, 19%, 35%);
+}

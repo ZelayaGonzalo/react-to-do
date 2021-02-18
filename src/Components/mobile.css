@@ -1,0 +1,13 @@
+@media (max-width:600px){
+    .list-container{
+        width: 90%;
+        height: auto;
+        min-width: auto;
+    }
+    .task-list{
+        max-height: 50vh;
+    }
+    .item-status{
+        display: none;
+    }
+}
