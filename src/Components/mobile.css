@@ -5,9 +5,12 @@
         min-width: auto;
     }
     .task-list{
-        max-height: 50vh;
+        max-height: 60vh;
     }
     .item-status{
         display: none;
+    }
+    .task .delete-task{
+        visibility: visible;
     }
 }

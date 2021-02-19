@@ -5,14 +5,31 @@ import './mobile.css'
 import iconMoon from '../images/icon-moon.svg'
 import iconSun from '../images/icon-sun.svg'
 import View from './View'
+import { DragDropContext } from 'react-beautiful-dnd'
+import arrayMove from'array-move'
 
 
 function List(props){
     
     function changeShow(event){
         const id =event.target.id
-        console.log(id)
         props.setShow(id)
+    }
+    function onDragEnd(result){
+        const {destination,source,draggableId} =result
+        if(!destination){
+            return
+        }
+        if(destination.droppableId === source.droppableId && destination.index === source.index){
+            return
+        }
+        const newTask ={
+            task: props.tasks[source.index].task,
+            completed: props.tasks[source.index].completed
+        }
+        const newArray = arrayMove(props.tasks,source.index,destination.index)
+        console.log(newArray)
+        props.setTasks(newArray)
 
     }
 
@@ -27,16 +44,20 @@ function List(props){
                 <span></span>
                 <button type="submit" className="b-hide"></button>
             </form>
-            <View 
-            show={props.show}
-            tasks={props.tasks} 
-            setTasks={props.setTasks} 
-            checkTask={props.checkTask} 
-            removeTask={props.removeTask} 
-            lightmode={props.lightmode}
-            changeShow={changeShow}
-            clearCompleted={props.clearCompleted}
+            <DragDropContext
+            onDragEnd={onDragEnd}
+            >
+                <View 
+                show={props.show}
+                tasks={props.tasks} 
+                setTasks={props.setTasks} 
+                checkTask={props.checkTask} 
+                removeTask={props.removeTask} 
+                lightmode={props.lightmode}
+                changeShow={changeShow}
+                clearCompleted={props.clearCompleted}
             />
+            </DragDropContext>
             <p className="drag-message"> Drag and drop to reorder</p>
                
         </div>

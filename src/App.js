@@ -2,6 +2,8 @@ import './App.css'
 import {useState, useEffect} from 'react'
 import List from './Components/List'
 
+
+
 function createTask(task) {
   return{
     task,
@@ -14,9 +16,11 @@ function App() {
   const [searchValue,setSearchValue]=useState("")
   const [show,setShow]=useState("all")
   const [lightmode,setLightmode]=useState(false)
+
   useEffect(()=>{
     setTasks(()=>{return [createTask("task1"),createTask("task2"),createTask("task3"),createTask("task4")]})
   },[])
+
   function handleSearch(event){
     const value = event.target.value
     setSearchValue(value)
@@ -25,7 +29,6 @@ function App() {
     event.preventDefault()
     const value = event.target.firstChild.value
     const newTask = createTask(value)
-    console.log(value)
     setTasks((prev)=>[...prev, newTask])
     setSearchValue('')
   }
@@ -38,6 +41,7 @@ function App() {
   }
 
   function changeMode(event) {
+    event.preventDefault()
     setLightmode(!lightmode)
   }
 
@@ -48,13 +52,11 @@ function App() {
     setTasks((prev) =>{
         const newArray = prev
         const index = newArray.findIndex(tasks=>tasks.task === target)
-        console.log(prev[index].completed)
         newArray[index]={
           task:target,
-          completed:!prev[index].completed
+          completed:!newArray[index].completed
         }
         checkbox.checked = newArray[index].completed
-        console.log(newArray[index])
         return newArray
         })
   }

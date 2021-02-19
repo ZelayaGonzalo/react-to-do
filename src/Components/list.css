@@ -69,7 +69,6 @@ ul,ol,li{
     overflow-y: auto;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-    transition: 0.3s;
 }
 .task{
     position: relative;
