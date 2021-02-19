@@ -51,11 +51,11 @@ function List(props){
                 show={props.show}
                 tasks={props.tasks} 
                 setTasks={props.setTasks} 
-                checkTask={props.checkTask} 
                 removeTask={props.removeTask} 
                 lightmode={props.lightmode}
                 changeShow={changeShow}
                 clearCompleted={props.clearCompleted}
+                handleCheck={props.handleCheck}
             />
             </DragDropContext>
             <p className="drag-message"> Drag and drop to reorder</p>

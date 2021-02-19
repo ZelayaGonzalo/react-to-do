@@ -45,20 +45,17 @@ function App() {
     setLightmode(!lightmode)
   }
 
-  function checkTask(event){
-    const checkbox = event.currentTarget.firstChild
-    const target =  event.currentTarget.lastChild.innerHTML
-    console.log(event.currentTarget.lastChild.innerHTML)
-    setTasks((prev) =>{
-        const newArray = prev
-        const index = newArray.findIndex(tasks=>tasks.task === target)
-        newArray[index]={
-          task:target,
-          completed:!newArray[index].completed
-        }
-        checkbox.checked = newArray[index].completed
-        return newArray
-        })
+  function handleCheck(event){
+    const target = event.target.id 
+    setTasks(prev=>{
+      const newArray = [...prev]
+      const index = newArray.findIndex(tasks=>tasks.task === target)
+      newArray[index] = {
+        task:target,
+        completed:!newArray[index].completed
+      }
+      return newArray
+    })
   }
   function clearCompleted(event){
     setTasks(prev=>prev.filter(item =>item.completed === false))
@@ -76,10 +73,10 @@ function App() {
       removeTask={removeTask}
       show={show}
       setShow={setShow}
-      checkTask={checkTask}
       clearCompleted={clearCompleted}
       lightmode={lightmode}
       changeMode={changeMode}
+      handleCheck={handleCheck}
       />
     </div>
   );

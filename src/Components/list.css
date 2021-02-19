@@ -104,23 +104,21 @@ ul,ol,li{
     background-position: center;
     border:none;
 }
-.task input:checked ~ p{
+.task input:checked ~ label{
     text-decoration: line-through;
     color: hsl(237, 14%, 26%);
 }
-.task-label{
-    width: 100%;
-    position: absolute;
-    height: 100%;
-    visibility: hidden;
-}
-.task p{
+
+.task label{
     display: inline;
     width: 100%;
+    height: 60px;
+    line-height: 60px;
     padding-left: 60px;
     padding-right: 60px;
     overflow: hidden;
     transition: 0.5s;
+    vertical-align:middle;
 }
 
 .task .delete-task{

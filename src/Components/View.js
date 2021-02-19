@@ -7,11 +7,11 @@ function View(props){
 
     function Task(value){
         return(
-        <li className={props.lightmode ? "task helper task-light":"task helper"} onClick={props.checkTask}>
-            <input key={value.task} className="task-check" type="checkbox" defaultChecked={value.completed} />
+        <li className={props.lightmode ? "task helper task-light":"task helper"}>
+            <input key={value.task} id={value.task} className="task-check" type="checkbox" onChange={props.handleCheck} checked={value.completed} />
             <span className="custom-check"></span>
             <span className="delete-task" onClick={props.removeTask}></span>
-            <p>{value.task}</p>
+            <label htmlFor={value.task}>{value.task}</label>
         </li>
         )
     }
@@ -61,13 +61,27 @@ function View(props){
     if(props.show === "active"){
         return(
             <div className={props.lightmode ? "task-list-container task-list-container-light" : "task-list-container"}>
-                <ul className={props.lightmode ? "task-list task-list-light" : "task-list"}>
-                        {transitions.filter(({item})=>item.completed === false).map(({item,props,key})=>
+                <Droppable droppableId="one">
+                    {(provided)=>(
+                    <div className={props.lightmode ? "task-list task-list-light" : "task-list"}
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                    >
+                        {transitions.filter(({item})=>item.completed === false).map(({item,props,key},index)=>
                         <animated.div key={key} style={props}>
-                            {Task(item)}
+                            <Draggable draggableId={item.task} index={index}>
+                                {(provided)=><div
+                                    {...provided.draggableProps}
+                                    {...provided.dragHandleProps}
+                                    ref={provided.innerRef}
+                                >{Task(item)}
+                                </div>}
+                            </Draggable>
                         </animated.div> 
                         )}
-                </ul>
+                        {provided.placeholder}
+                    </div>)}
+                </Droppable>
                 <BottomList
                     tasks={props.tasks}
                     changeShow={props.changeShow}
