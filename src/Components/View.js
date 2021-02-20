@@ -1,5 +1,4 @@
 import React from 'react'
-import {useState,useEffect} from 'react'
 import BottomList from './BottomList'
 import { Droppable,Draggable } from 'react-beautiful-dnd'
 import { useTransition , animated } from 'react-spring'
