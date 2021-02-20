@@ -3,7 +3,6 @@ import {useState, useEffect} from 'react'
 import List from './Components/List'
 
 
-
 function createTask(task) {
   return{
     task,
@@ -13,9 +12,10 @@ function createTask(task) {
 
 function App() {
   const [tasks,setTasks] = useState([])
-  const [searchValue,setSearchValue]=useState("")
-  const [show,setShow]=useState("all")
-  const [lightmode,setLightmode]=useState(false)
+  const [searchValue,setSearchValue] = useState("")
+  const [show,setShow] = useState("all")
+  const [lightmode,setLightmode] = useState(false)
+  const [toogleRepeated,setToogleRepeated] = useState(false)
 
   useEffect(()=>{
     setTasks(()=>{return [createTask("task1"),createTask("task2"),createTask("task3"),createTask("task4")]})
@@ -29,7 +29,15 @@ function App() {
     event.preventDefault()
     const value = event.target.firstChild.value
     const newTask = createTask(value)
-    setTasks((prev)=>[...prev, newTask])
+    setTasks((prev)=>{
+      if(!prev.some(item => item.task === newTask.task)){
+        return [...prev, newTask]
+      }
+      else{
+        showRepeated()
+        return prev
+      } 
+    })
     setSearchValue('')
   }
   function removeTask(event){
@@ -61,8 +69,14 @@ function App() {
     setTasks(prev=>prev.filter(item =>item.completed === false))
   }
 
+  function showRepeated(){
+    setToogleRepeated(true)
+    setTimeout(()=>setToogleRepeated(false),2000)
+}
+
   return (
     <div className={lightmode ? "App app-light":"App"}>
+      <div className={toogleRepeated ? "task-repeat":"task-repeat hidden"}>Task already Exists</div>
       <div className={lightmode ? "top top-light":"top"} ></div>
       <List 
       tasks={tasks} 

@@ -62,6 +62,7 @@ ul,ol,li{
     border-radius: 5px;
 }
 .task-list{ 
+    position:relative;
     color:hsl(234, 39%, 85%);
     padding:0;
     height: auto;

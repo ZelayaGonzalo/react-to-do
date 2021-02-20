@@ -28,3 +28,19 @@
   background-position:center;
   background-repeat: no-repeat;
 }
+
+.task-repeat{
+  font-size: 15px;
+  position: absolute;
+  top: 5%;
+  background: hsl(14, 92%, 95%);
+  z-index: 5;
+  color:hsl(15, 100%, 70%);
+  padding:14px;
+  border-radius: 5px;
+  opacity: 1;
+  transition: 0.7s;
+}
+.hidden{
+  opacity: 0;
+}

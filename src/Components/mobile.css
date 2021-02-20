@@ -1,16 +1,39 @@
 @media (max-width:600px){
+    .top{
+        background: url("../images/bg-mobile-dark.jpg");
+        background-size: cover;
+        background-position:center;
+        height: 200px;
+    }
+    .top-light{
+        background: url("../images/bg-mobile-light.jpg");
+        background-size: cover;
+        background-position:center;
+    }
+
     .list-container{
         width: 90%;
         height: auto;
         min-width: auto;
     }
     .task-list{
-        max-height: 60vh;
+        max-height: 50vh;
     }
     .item-status{
         display: none;
     }
     .task .delete-task{
         visibility: visible;
+    }
+}
+
+@media (min-height:800px){
+    .task-list{
+        max-height: 60vh;
+    }
+}
+@media (min-height:1024px){
+    .task-list{
+        max-height: 70vh;
     }
 }
