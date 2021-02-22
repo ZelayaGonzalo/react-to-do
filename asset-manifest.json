@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/react-to-do/static/css/main.84f8e56d.chunk.css",
+    "main.js": "/react-to-do/static/js/main.82928cef.chunk.js",
+    "main.js.map": "/react-to-do/static/js/main.82928cef.chunk.js.map",
+    "runtime-main.js": "/react-to-do/static/js/runtime-main.26e84c60.js",
+    "runtime-main.js.map": "/react-to-do/static/js/runtime-main.26e84c60.js.map",
+    "static/js/2.9ab11a62.chunk.js": "/react-to-do/static/js/2.9ab11a62.chunk.js",
+    "static/js/2.9ab11a62.chunk.js.map": "/react-to-do/static/js/2.9ab11a62.chunk.js.map",
+    "index.html": "/react-to-do/index.html",
+    "static/css/main.84f8e56d.chunk.css.map": "/react-to-do/static/css/main.84f8e56d.chunk.css.map",
+    "static/js/2.9ab11a62.chunk.js.LICENSE.txt": "/react-to-do/static/js/2.9ab11a62.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/react-to-do/static/media/bg-desktop-light.3508d620.jpg",
+    "static/media/list.css": "/react-to-do/static/media/icon-cross.6ee81d30.svg",
+    "static/media/icon-moon.6c03114b.svg": "/react-to-do/static/media/icon-moon.6c03114b.svg",
+    "static/media/icon-sun.910b1f9a.svg": "/react-to-do/static/media/icon-sun.910b1f9a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.26e84c60.js",
+    "static/js/2.9ab11a62.chunk.js",
+    "static/css/main.84f8e56d.chunk.css",
+    "static/js/main.82928cef.chunk.js"
+  ]
+}
